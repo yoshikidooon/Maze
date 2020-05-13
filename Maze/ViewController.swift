@@ -115,9 +115,9 @@ class ViewController: UIViewController {
                        self.speedX = 0
                        posX = self.screenSize.width - (self.playerView.frame.width / 2)
                    }
-                   if posX >= self.screenSize.height - (self.playerView.frame.height / 2) {
+                   if posY >= self.screenSize.height - (self.playerView.frame.height / 2) {
                        self.speedY = 0
-                       posX = self.screenSize.height - (self.playerView.frame.height / 2)
+                       posY = self.screenSize.height - (self.playerView.frame.height / 2)
                    }
                 
                 for wallRect in self.wallRectArray {
@@ -125,12 +125,13 @@ class ViewController: UIViewController {
                                     self.gameCheck(result: "GameOver", message: "壁に当たりました")
                                        return
                                    }
-                               }
                                
-                               if self.goalView.frame.intersects(self.playerView.frame){
+                               
+                               if self.goalView.frame.intersects(self.playerView.frame) {
                                 self.gameCheck(result: "clear", message: "クリアしました!")
                                    return
                                }
+                }
     
                 self.playerView.center = CGPoint(x: posX, y: posY)
                 }
